@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import getFromDeezer  from '../../services/getFromDeezer'
-import { genresAction } from '../../redux/actions';
 import { Title, Container, Card } from './styles'
 
 

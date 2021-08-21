@@ -2,7 +2,7 @@ import getFromDeezer from "../services/getFromDeezer";
 
 export async function fetchGenresToRedux(dispatchGenres) {
   const genres = await getFromDeezer('https://api.deezer.com/editorial?limit=28');
-  const newArray = genres.data.filter((elem) => elem.name !== "Todos");
+  const newArray = genres.data.filter((elem) => elem.name !== "All");
   dispatchGenres(newArray)
 }
 
