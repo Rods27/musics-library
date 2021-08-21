@@ -9,8 +9,8 @@ import { Provider } from 'react-redux';
 import './index.css'
 
 ReactDOM.render(
-  <Provider>
-    <BrowserRouter store={ store } history={ createBrowserHistory() } basename={process.env.PUBLIC_URL}>
+  <Provider store={ store }>
+    <BrowserRouter history={ createBrowserHistory() } basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </Provider>,
