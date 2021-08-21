@@ -7,6 +7,7 @@ class Routes extends React.Component {
     return (
       <Switch>
         <Route exact path="/" component={ Musics } />
+        
         {/* <Route exact path="/musics" component={ Musics } /> */}
         <Route exact path="/musics/favorites" component={ Favorites } />
       </Switch>
