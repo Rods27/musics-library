@@ -10,10 +10,8 @@ import Loader from "react-js-loader";
 class Musics extends React.Component {
   componentDidMount() {
     const { dispatchGenres, dispatchMusics, dispatchFavorites } = this.props;
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
     fetchGenresToRedux(dispatchGenres);
-    fetchMusicsToRedux(dispatchMusics);
-    dispatchFavorites(favorites);
+    fetchMusicsToRedux(dispatchMusics, dispatchFavorites);
   }
   render() {
     const { history, renderQuery, stateMusics, stateGenres} = this.props;

@@ -33,8 +33,12 @@ function separateAlbunAndTitle(mainMusics) {
   })
 }
 
-export async function fetchMusicsToRedux(dispatchMusics) {
+export async function fetchMusicsToRedux(dispatchMusics, dispatchFavorites) {
+  if (!localStorage.thumbs) localStorage.setItem('thumbs', JSON.stringify([]));
+  if (!localStorage.favorites) localStorage.setItem('favorites', JSON.stringify([]));
   const mainMusics = await getFromDeezer('https://api.deezer.com/playlist/3155776842/tracks&limit=50');
+  const favorites = JSON.parse(localStorage.getItem('favorites'));
+  dispatchFavorites(favorites);
   secondsToMinutes(mainMusics.data)
   separateAlbunAndTitle(mainMusics.data)
   dispatchMusics(mainMusics.data);
