@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// const localhost = 'http://localhost:3001/'
 const heroku = 'https://rods27-musics-library.herokuapp.com/';
 
 export default async function getFromDeezer(url) {
