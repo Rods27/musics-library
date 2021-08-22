@@ -68,7 +68,7 @@ Faça o comando tanto na pasta raiz.
     </ul>
   </ul><br>
   
- #### Tela de Favoritos  ```/favoritos```
+ #### Tela de Favoritos  ```/musics/favorites```
   <ul>
     <li>Nesta parte da tela, serão mostradas as músicas favoritas do usuário.</li>
     <li>O usuário pode ouvir a prévia de 30s da música e pode e removê-las dos favoritos.</li>
