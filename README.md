@@ -30,7 +30,7 @@ Ou cole https://rods27.github.io/musics-library/ no navegador.
   <li>Javascript</li>
   <li><a href="https://reactjs.org">React</a></li>
   <li>Redux</li>
-  <li><a href="https://styled-components.com/">Styles Components</a></li>
+  <li><a href="https://styled-components.com/">Styled Components</a></li>
 </ul>
 
 ## Instalação
@@ -68,7 +68,7 @@ Faça o comando tanto na pasta raiz.
     </ul>
   </ul><br>
   
- #### Tela de Favoritos  ```/favoritos```
+ #### Tela de Favoritos  ```/musics/favorites```
   <ul>
     <li>Nesta parte da tela, serão mostradas as músicas favoritas do usuário.</li>
     <li>O usuário pode ouvir a prévia de 30s da música e pode e removê-las dos favoritos.</li>
