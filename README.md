@@ -30,7 +30,7 @@ Ou cole https://rods27.github.io/musics-library/ no navegador.
   <li>Javascript</li>
   <li><a href="https://reactjs.org">React</a></li>
   <li>Redux</li>
-  <li><a href="https://styled-components.com/">Styles Components</a></li>
+  <li><a href="https://styled-components.com/">Styled Components</a></li>
 </ul>
 
 ## Instalação
