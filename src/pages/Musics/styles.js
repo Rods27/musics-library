@@ -27,10 +27,10 @@ export const TitleContainer = styled.div`
 
 export const GenresTitle = styled.h1`
   color: #333;
-  min-width: 41%;
+  min-width: 35%;
 `
 export const MainMusicsTitle = styled.h1`
-  min-width: 41%;
+  min-width: 40%;
   color: #333;
 `
 
@@ -50,16 +50,19 @@ export const BackWardDiv = styled.button`
   padding: 5px;
   border-radius: 5px;
   z-index: 10;
-  left: 50px;
+  left: 25px;
   background: none;
   border: none;
-  text-shadow: 0 0 2px #000;
-  -moz-text-shadow: 0 0 2px #000;
-  -webkit-text-shadow: 0 0 2px #000;
-  color: ${collorPallete.darkWhite};
+  text-shadow: 0 0 2px #fff;
+  -moz-text-shadow: 0 0 2px #fff;
+  -webkit-text-shadow: 0 0 2px #fff;
+  color: ${collorPallete.lightBlack};
   &:hover {
     transition: .1s;
     color: ${collorPallete.darkestWhite};
+    text-shadow: 0 0 2px #000;
+    -moz-text-shadow: 0 0 2px #000;
+    -webkit-text-shadow: 0 0 2px #000;
   }
   i {
     font-size: 35px;

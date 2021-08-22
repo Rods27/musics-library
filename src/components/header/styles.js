@@ -103,7 +103,7 @@ export const FavBtn = styled.button`
   border-radius: 4px;
   &:hover {
     transition: .1s;
-    color: ${collorPallete.preparing};
+    color: crimson;
   }
   i {
     font-size: 33px;

@@ -1,70 +1,83 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Musics Library
 
-## Available Scripts
+Uma aplicação para ouvir e escolher suas músicas preferidas, pode ouvir uma prévia delas, ou ser redirecionado para o site da deezer e ouvir completa, pode filtrar por gênero, artista, e album.
 
-In the project directory, you can run:
+## Indice
+* [Deploy](#deploy)
+* [Tecnologias](#tecnologias)
+* [Instalação](#instalação)
+* [Funcionalidades](#funcionalidades)
+  * [Tela Principal](#telaprincipal---musics)
+  * [Tela de Favoritos](#teladefavoritos---musics---favorites)
 
-### `yarn start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img align="left" src="public/img/1.jpg" width="400" />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img align="center" src="public/img/2.jpg" width="400" />
 
-### `yarn test`
+<img align="left" src="public/img/3.jpg" width="400" />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img align="center" src="public/img/4.jpg" width="400" />
 
-### `yarn build`
+## Deploy
+<a href=https://rods27.github.io/musics-library/ target="blank">Link para o teste da aplicação</a>
+Ou cole https://rods27.github.io/musics-library/ no navegador.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tecnologias
+<ul>
+  <li>Javascript</li>
+  <li><a href="https://reactjs.org">React</a></li>
+  <li>Redux</li>
+  <li><a href="https://styled-components.com/">Styles Components</a></li>
+</ul>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instalação
+Assim que tiver clonado o repositório, usando o terminal do [vscode](https://code.visualstudio.com/) ou o terminal do seu sistema operacional.
+- Installe as dependencias usando :
+```
+npm install
+```
+Faça o comando tanto na pasta raiz.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Funcionalidades
+[Voltar ao Indice](#indice)
+#### Tela Principal ```/musics``` 
+  <ul>
+    Filtro de Gênero musical:
+    <li>O usuario pode escolher um gênero, e irá filtrar os artistas pelo gênero.</li>
+    <ul>
+      <li>Assim que filtrar o usuário pode escolher um artista e filtrar as músicas mais ouvidas dele.</li>
+      <li>O usuário pode ouvir a prévia de 30s da música e pode adicioná-la as favoritos.</li>
+      <li>Caso o usuário prefira, ao clicar no botão será redirecionado ao site da deezer pra ouvir a versão completa.</li>
+    </ul>
+    Principais Músicas:
+    <li>Nesta parte da tela, serão mostradas as principais músicas do momento pela Deezer.</li>
+    <li>O usuário pode ouvir a prévia de 30s da música e pode adicioná-la as favoritos.</li>
+    <li>Caso o usuário prefira, ao clicar no botão será redirecionado ao site da deezer pra ouvir a versão completa.</li>
+    Header:
+    <ul>
+      <li>O usuário pode digitar alguma palavra e filtrar por músicas na tela de músicas principais.</li>
+      Botão da Lupa:
+      <li>Pesquisará pela palavra digitada no campo de pesquisa.</li>
+      Botão de Coração:
+      <li>Será redirecionado aos favoritos.</li>
+      Botão de Casa:
+      <li>Será redirecionado a Tela Principal.</li>
+    </ul>
+  </ul><br>
+  
+ #### Tela de Favoritos  ```/favoritos```
+  <ul>
+    <li>Nesta parte da tela, serão mostradas as músicas favoritas do usuário.</li>
+    <li>O usuário pode ouvir a prévia de 30s da música e pode e removê-las dos favoritos.</li>
+    <li>Caso o usuário prefira, ao clicar no botão será redirecionado ao site da deezer pra ouvir a versão completa.</li>
+  </ul><br>
+  
+ [Voltar ao Indice](#indice)
+## Feedback 
 
-### `yarn eject`
+Ficarei bem agradecido caso queira me dar um feedback costrutivo, caso queira meus contatos estarão abaixo!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Email: rods.leite27@gmail.com e <a href="https://linkedin.com/in/rodrigoleite27">Linkedin</a>.
