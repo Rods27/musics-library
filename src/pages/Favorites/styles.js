@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-height: 100vh;
 `
 
 export const MinorContainer = styled.div `
@@ -19,7 +20,7 @@ export const MinorContainer = styled.div `
   padding: 20px 0;
   min-width: 850px;
   max-width: 1280px;
-  max-height: 820px;
+  max-height: 1320px;
 `
 
 export const Card = styled.div`

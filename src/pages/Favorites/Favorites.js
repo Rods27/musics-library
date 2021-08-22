@@ -67,7 +67,7 @@ class Favorites extends React.Component {
           { (stateFavorites && stateFavorites.length)
             ? stateFavorites.map((elem, index) => (
               <Card key={ index } >
-                <a href={ elem.artist.link } target="blank">
+                <a href={ elem.link } target="blank">
                   <i className="fab fa-deezer deezer"></i>
                 </a>
                 <img src={ elem.album.cover_medium } alt={`${elem.name}`}/>
@@ -112,6 +112,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 Favorites.propTypes = {
   history: PropTypes.shape().isRequired,
+  stateFavorites: PropTypes.arrayOf(PropTypes.object),
+  dispatchFavorites: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

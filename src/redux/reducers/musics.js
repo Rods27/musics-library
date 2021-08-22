@@ -31,6 +31,7 @@ export default function musics(state = INITIAL_STATE, action) {
       ...state,
       favorites: action.array,
     };
+
   default:
     return state;
   }

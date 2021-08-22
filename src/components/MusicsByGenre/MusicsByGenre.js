@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { favoritesAction, mainMusicsAction } from '../../redux/actions';
+import { favoritesAction } from '../../redux/actions';
 import { Container, Card, Infos, Thumbs, LoaderDiv } from './styles'
 import addToFavorites from '../../utils/addToFavorite'
 import Loader from "react-js-loader";
 
 
-class MainMusics extends React.Component {
+class MusicsByGenre extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -46,15 +46,15 @@ class MainMusics extends React.Component {
   }
 
   render() {
-    const { stateMainMusics, stateFavorites, dispatchFavorites } = this.props;
+    const { musicsByGender, stateFavorites, dispatchFavorites } = this.props;
     const functions = { stateFavorites, dispatchFavorites };
     const thumbs = JSON.parse(localStorage.getItem('thumbs'));
     return (
       <Container>
-        { (stateMainMusics && stateMainMusics.length > 0) 
-          ? stateMainMusics.map((elem, index) => (
+        { (musicsByGender && musicsByGender.length > 0) 
+          ? musicsByGender.map((elem, index) => (
             <Card key={ index } >
-              <a href={ elem.artist.link } target="blank">
+              <a href={ elem.link } target="blank">
                 <i className="fab fa-deezer deezer"></i>
               </a>
               <img src={ elem.album.cover_medium } alt={`${elem.name}`}/>
@@ -65,7 +65,7 @@ class MainMusics extends React.Component {
                 <span id="duration">{elem.duration}</span>
               </Infos>
               <Thumbs onClick={ () => {
-                addToFavorites(stateMainMusics, elem.id, functions);
+                addToFavorites(musicsByGender, elem.id, functions);
                 this.setState({ render: true });
               }} 
               >
@@ -93,21 +93,18 @@ class MainMusics extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  stateMainMusics: state.musicsReducer.mainMusics,
+  musicsByGender: state.artistsReducer.musicsByGender,
   stateFavorites: state.musicsReducer.favorites,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchMusics: (array) => dispatch(mainMusicsAction(array)),
   dispatchFavorites: (array) => dispatch(favoritesAction(array)),
 });
 
-MainMusics.propTypes = {
-  history: PropTypes.shape().isRequired,
-  dispatchMusics: PropTypes.func.isRequired,
-  dispatchFavorites: PropTypes.func.isRequired,
-  stateMainMusics: PropTypes.arrayOf(PropTypes.object),
+MusicsByGenre.propTypes = {
+  musicsByGender: PropTypes.arrayOf(PropTypes.object),
   stateFavorites: PropTypes.arrayOf(PropTypes.object),
+  dispatchFavorites: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainMusics);
+export default connect(mapStateToProps, mapDispatchToProps)(MusicsByGenre);

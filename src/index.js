@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserHistory } from 'history';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 import { Provider } from 'react-redux';
@@ -10,7 +9,7 @@ import './index.css'
 
 ReactDOM.render(
   <Provider store={ store }>
-    <BrowserRouter history={ createBrowserHistory() } basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </Provider>,

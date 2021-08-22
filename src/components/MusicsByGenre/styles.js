@@ -3,13 +3,14 @@ import collorPallete from '../../utils/collor-pallete'
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   color: white;
   flex-wrap: wrap;
-  background-color: ${collorPallete.lightestBlack};
-  border-radius: 9px;
-  margin: calc(2vh + 95px) 0 30px 17px;
   overflow-y: auto;
+  border-radius: 9px;
+  background-color: ${collorPallete.lightestBlack};
+  margin: calc(2vh + 95px) 0 30px 17px;
   padding: 20px 0;
   width: 800px;
   max-height: 1320px;
@@ -30,7 +31,6 @@ export const Container = styled.div`
     margin: 0;
   }
   span {
-    margin: 2px 0;
     font-size: 13px;
   }
   a { color: inherit; } 
@@ -67,6 +67,7 @@ export const Container = styled.div`
     right: 40px;
   }
   `;
+  
 export const Card = styled.div`
   position: relative;
   display: flex;

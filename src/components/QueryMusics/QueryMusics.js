@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { favoritesAction, queryMusicsAction } from '../../redux/actions';
-import { Container, Card, Infos, Thumbs } from './styles'
+import { Container, Card, Infos, Thumbs, LoaderDiv } from './styles'
 import addToFavorites from '../../utils/addToFavorite'
+import Loader from "react-js-loader";
 
 class QueryMusics extends React.Component {
   constructor() {
@@ -55,7 +56,7 @@ class QueryMusics extends React.Component {
     return (
       <Container>
         { (stateQueryMusics && stateQueryMusics.length > 0) 
-          && stateQueryMusics.map((elem, index) => (
+          ? stateQueryMusics.map((elem, index) => (
             <Card key={ index } >
               <a href={ elem.artist.link } target="blank">
                 <i className="fab fa-deezer deezer"></i>
@@ -84,6 +85,11 @@ class QueryMusics extends React.Component {
               <audio src={ elem.preview } preload='auto' id={ elem.id } />
             </Card>
           ))
+          : (
+            <LoaderDiv>
+              <Loader type="spinner-cub" bgColor={"#FFFF"} size={100} />
+            </LoaderDiv>
+          )
         }
       </Container>
     );
@@ -102,8 +108,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 QueryMusics.propTypes = {
-  history: PropTypes.shape().isRequired,
-  stateMainMusics: PropTypes.arrayOf(PropTypes.object),
+  stateQueryMusics: PropTypes.arrayOf(PropTypes.object),
+  stateFavorites: PropTypes.arrayOf(PropTypes.object),
+  dispatchQueryMusics: PropTypes.func.isRequired,
+  dispatchFavorites: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QueryMusics);

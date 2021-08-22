@@ -71,6 +71,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Header.propTypes = {
+  history: PropTypes.shape().isRequired,
   dispatchQueryMusics: PropTypes.func.isRequired,
 };
 

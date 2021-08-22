@@ -8,13 +8,13 @@ export const Container = styled.div`
   flex-wrap: wrap;
   background-color: ${collorPallete.lightestBlack};
   border-radius: 9px;
-  max-width: 850px;
   margin: calc(2vh + 95px) 0 30px 17px;
   overflow-y: auto;
   padding: 20px 0;
+  width: 800px;
   max-height: 1320px;
-  @media only screen and (max-width: 1400px) { 
-    max-width: 600px;
+  @media (min-width: 1300px) { 
+    width: 45%;
   }
   h1 {
     position: absolute;
@@ -104,4 +104,12 @@ export const Thumbs = styled.div `
   .off {
     color: ${collorPallete.darkerWhite}
   }
+`
+
+export const LoaderDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  height: 100%;
 `

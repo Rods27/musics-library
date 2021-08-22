@@ -6,7 +6,7 @@ export async function fetchGenresToRedux(dispatchGenres) {
   dispatchGenres(newArray)
 }
 
-function secondsToMinutes(musics) {
+export async function secondsToMinutes(musics) {
   musics.forEach((elem) => {
     let seconds = Number(elem.duration);
     let min = Math.floor(seconds % 3600 / 60);
@@ -17,8 +17,8 @@ function secondsToMinutes(musics) {
   })
 }
 
-function separateAlbunAndTitle(mainMusics) {
-  mainMusics.forEach((elem) => {
+export async function separateAlbunAndTitle(musics) {
+  musics.forEach((elem) => {
     const music = elem.title;
     const album = elem.album.title
     if(music.length > 30) {
