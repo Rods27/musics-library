@@ -7,6 +7,7 @@ Uma aplicação para ouvir e escolher suas músicas preferidas, pode ouvir uma p
 * [Deploy](#deploy)
 * [Tecnologias](#tecnologias)
 * [Instalação](#instalação)
+* [Inicializando](#Inicializando)
 * [Funcionalidades](#funcionalidades)
   * [Tela Principal](#telaprincipal---musics)
   * [Tela de Favoritos](#teladefavoritos---musics---favorites)
@@ -39,7 +40,13 @@ Assim que tiver clonado o repositório, usando o terminal do [vscode](https://co
 ```
 npm install
 ```
-Faça o comando tanto na pasta raiz.
+Faça o comando tanto na pasta ```client``` e ```server```.
+
+## Inicializando
+Esta aplicação faz requisições a uma API da deezer, como a aplicação usa a rota localhost, a deezer bloqueia requisições de outros domínios, assim como do localhost.
+Para a aplicação funcionar, basta ir na pasta ```server``` abrir o terminar e digitar ```npm start```.
+Logo em seguida, vá a pasta ```client``` abra o terminal e digite ```npm start```.
+
 
 ## Funcionalidades
 [Voltar ao Indice](#indice)
