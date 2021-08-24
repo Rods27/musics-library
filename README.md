@@ -14,13 +14,13 @@ Uma aplicação para ouvir e escolher suas músicas preferidas, pode ouvir uma p
 
 ## Screenshots
 
-<img align="left" src="public/img/1.jpg" width="400" />
+<img align="left" src="client/public/img/1.jpg" width="400" />
 
-<img align="center" src="public/img/2.jpg" width="400" />
+<img align="center" src="client/public/img/2.jpg" width="400" />
 
-<img align="left" src="public/img/3.jpg" width="400" />
+<img align="left" src="client/public/img/3.jpg" width="400" />
 
-<img align="center" src="public/img/4.jpg" width="400" />
+<img align="center" src="client/public/img/4.jpg" width="400" />
 
 ## Deploy
 <a href=https://rods27.github.io/musics-library/ target="blank">Link para o teste da aplicação</a>
