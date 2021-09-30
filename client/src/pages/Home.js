@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-class Home extends React.Component {
-  async componentDidMount() {
-    const { history } = this.props;
-    history.push('/musics')
-  }
+function Home({ history }) {
+  useEffect(() => history.push('/musics'));
 
-  render() {
-    return (
-      <div>Home</div>
-    );
-  }
+   return (
+    <div>Home</div>
+  );
 }
 
 Home.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default connect(null, null)(Home);
+export default Home;

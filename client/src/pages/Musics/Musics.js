@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Loader from "react-js-loader";
 import { fetchGenresToRedux, fetchMusicsToRedux } from '../../utils/fetchToRedux';
-import { favoritesAction, genresAction, mainMusicsAction, renderAction } from '../../redux/actions';
+import {
+  favoritesAction,
+  genresAction,
+  mainMusicsAction,
+  renderAction } from '../../redux/actions';
 import {
   MainMusics,
   Header,
@@ -21,59 +25,61 @@ import {
   BackWardDiv
 } from './styles'
 
-class Musics extends React.Component {
-  componentDidMount() {
-    const { dispatchGenres, dispatchMusics, dispatchFavorites } = this.props;
+function Musics(props) {
+  const {
+    dispatchGenres,
+    dispatchMusics,
+    dispatchFavorites,
+    history,
+    renderQuery,
+    stateMusics,
+    stateGenres,
+    renderArtists,
+    renderMusics,
+    manipulateRender,
+  } = props;
+
+  useEffect(() => {
     fetchGenresToRedux(dispatchGenres);
     fetchMusicsToRedux(dispatchMusics, dispatchFavorites);
-  }
-  render() {
-    const {
-      history,
-      renderQuery,
-      stateMusics,
-      stateGenres,
-      renderArtists,
-      renderMusics,
-      manipulateRender,
-    } = this.props;
-    return (
-      <Container>
-        <Header history={ history }/>
-        { (stateMusics.length > 0 && stateGenres.length > 0) ?
-          <div>
-            <TitleContainer>
-              <BackWardDiv onClick={ () => manipulateRender(false, false) }>
-                <i className="fas fa-backward"></i>
-              </BackWardDiv>
-              <GenresTitle>Generos</GenresTitle>
-              <MainMusicsTitle>Principais Músicas</MainMusicsTitle>
-            </TitleContainer>
-            <MinorContainer>
-              { (!renderMusics && !renderArtists) ?
-                <GenresList history={ history }/>
-                : ( renderArtists ?
-                  <ArtistsByGenre history={ history } />
-                  :
-                  <MusicsByGenre history={ history } />
-                )
-              }
-              {  renderQuery ?
-                <QueryMusics history={ history } />
-                :
-                <MainMusics history={ history } />
-              }
-            </MinorContainer>
-          </div>
-        : (
-          <LoaderDiv>
-            <Loader type="spinner-cub" bgColor={"#333"} size={120} />
-          </LoaderDiv>
-        )
-        } 
-      </Container>
-    );
-  }
+  }, [dispatchFavorites, dispatchGenres, dispatchMusics]);
+
+  return(
+    <Container>
+    <Header history={ history }/>
+    { (stateMusics.length > 0 && stateGenres.length > 0) ?
+      <div>
+        <TitleContainer>
+          <BackWardDiv onClick={ () => manipulateRender(false, false) }>
+            <i className="fas fa-backward"></i>
+          </BackWardDiv>
+          <GenresTitle>Generos</GenresTitle>
+          <MainMusicsTitle>Principais Músicas</MainMusicsTitle>
+        </TitleContainer>
+        <MinorContainer>
+          { (!renderMusics && !renderArtists) ?
+            <GenresList history={ history }/>
+            : ( renderArtists ?
+              <ArtistsByGenre history={ history } />
+              :
+              <MusicsByGenre history={ history } />
+            )
+          }
+          {  renderQuery ?
+            <QueryMusics history={ history } />
+            :
+            <MainMusics history={ history } />
+          }
+        </MinorContainer>
+      </div>
+    : (
+      <LoaderDiv>
+        <Loader type="spinner-cub" bgColor={"#333"} size={120} />
+      </LoaderDiv>
+    )
+    } 
+  </Container>
+  );
 }
 
 const mapStateToProps = (state) => ({

@@ -6,17 +6,15 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import GlobalStyle from './styles/global'
 
-class App extends React.Component {
-  render() {
-    return (
-      <Provider store={ store }>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
-          <GlobalStyle />
-          <Routes history={ createBrowserHistory() }/>
-        </BrowserRouter>
-      </Provider>
-    );
-  }
+function App() {
+  return (
+    <Provider store={ store }>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <GlobalStyle />
+        <Routes history={ createBrowserHistory() }/>
+      </BrowserRouter>
+    </Provider>
+  );
 }
 
 export default App;
