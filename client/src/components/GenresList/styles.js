@@ -13,13 +13,14 @@ export const Container = styled.div`
   border-radius: 9px;
   max-width: 900px;
   padding: 20px 0;
+  width: 800px;
   max-height: 1320px;
   button {
     background: none;
     border: none;
     padding: 0;
   }
-  @media (min-width: 1300px) { 
+  @media (min-width: 1250px) { 
     width: 45%;
   }
 `;
