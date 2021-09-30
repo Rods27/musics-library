@@ -6,14 +6,8 @@ import getFromDeezer from "../../services/getFromDeezer";
 import { artistsByGenderAction } from '../../redux/actions';
 import Loader from "react-js-loader";
 
-class GenresLists extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  async getArtistsFromGenre(id) {
-    const { dispatchArtistsByGenre } = this.props;
+function GenresLists({ dispatchArtistsByGenre, stateGenres }) {
+  async function getArtistsFromGenre(id) {
     const artists = await getFromDeezer(`https://api.deezer.com/genre/${id}/artists`);
     dispatchArtistsByGenre({
       renderArtists: true,
@@ -21,27 +15,24 @@ class GenresLists extends React.Component {
     }, artists.data);
   }
 
-  render() {
-    const { stateGenres } = this.props;
-    return (
-      <Container>
-        { (stateGenres && stateGenres.length > 0)
-          ? stateGenres.map( (elem, index) =>
-            <button key={ index } onClick={ () => this.getArtistsFromGenre(elem.id) }>
-              <Card style={ { backgroundImage: `url(${elem.picture_big})` } }>
-                <Title>{elem.name}</Title>
-              </Card>
-            </button>
-          )
-          : (
-            <LoaderDiv>
-              <Loader type="spinner-cub" bgColor={"#FFFF"} size={100} />
-            </LoaderDiv>
-          )
-        }
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      { (stateGenres && stateGenres.length > 0)
+        ? stateGenres.map( (elem, index) =>
+          <button key={ index } onClick={ () => getArtistsFromGenre(elem.id) }>
+            <Card style={ { backgroundImage: `url(${elem.picture_big})` } }>
+              <Title>{elem.name}</Title>
+            </Card>
+          </button>
+        )
+        : (
+          <LoaderDiv>
+            <Loader type="spinner-cub" bgColor={"#FFFF"} size={100} />
+          </LoaderDiv>
+        )
+      }
+    </Container>
+  );
 }
 
 const mapStateToProps = (state) => ({

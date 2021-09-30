@@ -42,7 +42,7 @@ function Favorites({ history, dispatchFavorites, stateFavorites }) {
               </Infos>
               <Thumbs onClick={ () => {
                 addToFavorites(stateFavorites, elem.id, functions)
-              }} 
+              }}
               >
                 { thumbs.includes(elem.id) ?
                   <i className="fas fa-thumbs-up on"></i>

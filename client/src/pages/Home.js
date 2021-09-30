@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 function Home({ history }) {
   useEffect(() => history.push('/musics'));
-
    return (
     <div>Home</div>
   );
