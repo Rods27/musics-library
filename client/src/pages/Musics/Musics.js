@@ -53,7 +53,7 @@ function Musics(props) {
           <BackWardDiv onClick={ () => manipulateRender(false, false) }>
             <i className="fas fa-backward"></i>
           </BackWardDiv>
-          <GenresTitle>Generos</GenresTitle>
+          <GenresTitle >Generos</GenresTitle>
           <MainMusicsTitle>Principais Músicas</MainMusicsTitle>
         </TitleContainer>
         <MinorContainer>

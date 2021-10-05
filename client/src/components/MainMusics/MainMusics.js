@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { favoritesAction, mainMusicsAction } from '../../redux/actions';
 import { Container, Card, Infos, Thumbs, LoaderDiv } from './styles'
 import addToFavorites from '../../utils/addToFavorite'
 import Loader from "react-js-loader";
-import listenAudio from '../../utils/listenAudio';
+import useListenAudio from '../../utils/useListenAudio';
 
 function MainMusics(props) {
   const {
@@ -14,10 +14,14 @@ function MainMusics(props) {
     dispatchFavorites
   } = props;
 
-  const [preview, setPreview] = useState([]);
   const [, updateFavorites] = useState([]);
   const functions = { stateFavorites, dispatchFavorites };
   const thumbs = JSON.parse(localStorage.getItem('thumbs'));
+  const [preview, listenAudio] = useListenAudio();
+
+  useEffect(() => {
+    console.log('useEffect');
+  }, [preview])
 
   return (
     <Container>
@@ -45,7 +49,7 @@ function MainMusics(props) {
                 <i className="far fa-thumbs-up off"></i>
               }
             </Thumbs>
-            <button onClick={ () => listenAudio(elem.id, preview, setPreview) } >
+            <button onClick={ () => listenAudio(elem.id) } >
               <i className={`fas fa-play play-${elem.id}`}></i>
             </button>
             <audio src={ elem.preview } preload='auto' id={ elem.id } />

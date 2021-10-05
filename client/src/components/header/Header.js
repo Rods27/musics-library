@@ -21,14 +21,20 @@ function Header({ history, dispatchQueryMusics }) {
   return (
     <HeaderContainer>
       <Container>
-        <SearchBtn onClick={ () => searchForQuery() }>
+        <SearchBtn data-testid="search-btn" onClick={ () => searchForQuery() }>
           <i className="fas fa-search"></i>
         </SearchBtn>
-        <input  id="search"/>
-        <FavBtn onClick={ () => history.push('/musics/favorites') } >
+        <input data-testid="search-input" id="search"/>
+        <FavBtn
+          data-testid="favorite-btn"
+          onClick={ () => history.push('/musics/favorites') }
+        >
           <i className="fas fa-heart"></i>
         </FavBtn>
-        <HomeBtn onClick={ () => history.push('/musics')}>
+        <HomeBtn
+          data-testid="home-btn"
+          onClick={ () => history.push('/musics')}
+        >
           <i className="fas fa-home"></i>
         </HomeBtn>
       </Container>

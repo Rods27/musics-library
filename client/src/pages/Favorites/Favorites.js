@@ -5,7 +5,7 @@ import { Container, Card, Infos, Thumbs, MinorContainer } from './styles'
 import { Header } from '../../components'
 import { favoritesAction } from '../../redux/actions';
 import addToFavorites from '../../utils/addToFavorite';
-import listenAudio from '../../utils/listenAudio';
+import listenAudio from '../../utils/useListenAudio';
 
 function Favorites({ history, dispatchFavorites, stateFavorites }) {
   const [preview, setPreview] = useState([]);

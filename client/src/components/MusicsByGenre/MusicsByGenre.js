@@ -5,7 +5,7 @@ import { favoritesAction } from '../../redux/actions';
 import { Container, Card, Infos, Thumbs, LoaderDiv } from './styles'
 import addToFavorites from '../../utils/addToFavorite'
 import Loader from "react-js-loader";
-import listenAudio from '../../utils/listenAudio';
+import listenAudio from '../../utils/useListenAudio';
 
 function MusicsByGenre({ musicsByGender, stateFavorites, dispatchFavorites }) {
   const [preview, setPreview] = useState([]);
