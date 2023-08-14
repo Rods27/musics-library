@@ -4,7 +4,6 @@
 An application to play and choose your favorite musics, you can listen a preview or be redirected to deezer's website and listen the complete version. You can filter by genre, artist and album too.
 
 ## Indice
-* [Deploy](#deploy)
 * [Technologies](#Technologies)
 * [Installation](#installation)
 * [Initializing](#initializing)
@@ -21,10 +20,6 @@ An application to play and choose your favorite musics, you can listen a preview
 <img align="left" src="client/public/img/3.jpg" width="400" />
 
 <img align="center" src="client/public/img/4.jpg" width="400" />
-
-## Deploy
-<a href=https://rods27.github.io/musics-library/ target="blank">Github Link to test the application.</a>
-or paste https://rods27.github.io/musics-library/ in your browser.
 
 ## Technologies
 <ul>
