@@ -5,18 +5,19 @@ import { favoritesAction } from '../../redux/actions';
 import { Container, Card, Infos, Thumbs, LoaderDiv } from './styles'
 import addToFavorites from '../../utils/addToFavorite'
 import Loader from "react-js-loader";
-import listenAudio from '../../utils/useListenAudio';
+import useListenAudio from '../../utils/useListenAudio';
 
 function MusicsByGenre({ musicsByGender, stateFavorites, dispatchFavorites }) {
-  const [preview, setPreview] = useState([]);
   const [, updateFavorites] = useState([]);
   const functions = { stateFavorites, dispatchFavorites };
   const thumbs = JSON.parse(localStorage.getItem('thumbs'));
+  const [, listenAudio] = useListenAudio();
+
   return (
     <Container>
       { (musicsByGender && musicsByGender.length > 0) 
-        ? musicsByGender.map((elem, index) => (
-          <Card key={ index } >
+        ? musicsByGender.map(elem => (
+          <Card key={ elem.name } >
             <a href={ elem.link } target="blank">
               <i className="fab fa-deezer deezer"></i>
             </a>
@@ -38,7 +39,7 @@ function MusicsByGenre({ musicsByGender, stateFavorites, dispatchFavorites }) {
                 <i className="far fa-thumbs-up off"></i>
               }
             </Thumbs>
-            <button onClick={ () => listenAudio(elem.id, preview, setPreview) } >
+            <button onClick={ () => listenAudio(elem.id) } >
               <i className={`fas fa-play play-${elem.id}`}></i>
             </button>
             <audio src={ elem.preview } preload='auto' id={ elem.id } />

@@ -5,7 +5,7 @@ import { favoritesAction, queryMusicsAction } from '../../redux/actions';
 import { Container, Card, Infos, Thumbs, LoaderDiv } from './styles'
 import addToFavorites from '../../utils/addToFavorite'
 import Loader from "react-js-loader";
-import listenAudio from '../../utils/useListenAudio';
+import useListenAudio from '../../utils/useListenAudio';
 
 function QueryMusics(props) {
   const {
@@ -15,7 +15,7 @@ function QueryMusics(props) {
     dispatchFavorites 
   } = props;
 
-  const [preview, setPreview] = useState([]);
+  const [, listenAudio] = useListenAudio();
   const [, updateFavorites] = useState([]);
 
   useEffect(() => {
@@ -27,8 +27,8 @@ function QueryMusics(props) {
   return (
     <Container>
       { (stateQueryMusics && stateQueryMusics.length > 0) 
-        ? stateQueryMusics.map((elem, index) => (
-          <Card key={ index } >
+        ? stateQueryMusics.map(elem => (
+          <Card key={elem.name} >
             <a href={ elem.artist.link } target="blank">
               <i className="fab fa-deezer deezer"></i>
             </a>
@@ -50,7 +50,7 @@ function QueryMusics(props) {
                 <i className="far fa-thumbs-up off"></i>
               }
             </Thumbs>
-            <button onClick={ () => listenAudio(elem.id, preview, setPreview) } >
+            <button onClick={ () => listenAudio(elem.id) } >
               <i className={`fas fa-play play-${elem.id}`}></i>
             </button>
             <audio src={ elem.preview } preload='auto' id={ elem.id } />

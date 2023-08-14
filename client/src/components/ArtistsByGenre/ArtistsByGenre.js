@@ -22,8 +22,8 @@ function ArtistsByGenre ({ stateAristsByGender, dispatchMusicsByGenre }) {
   return (
     <Container>
       { (stateAristsByGender && stateAristsByGender.length > 0)
-        ? stateAristsByGender.map( (elem, index) =>
-          <button key={ index } onClick={ () => getMusicsByArtist(elem.id) }>
+        ? stateAristsByGender.map(elem =>
+          <button key={ elem.name } onClick={ () => getMusicsByArtist(elem.id) }>
             <Card style={ { backgroundImage: `url(${elem.picture_big})` } }>
               <Title>{elem.name}</Title>
             </Card>

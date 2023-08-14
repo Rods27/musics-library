@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { favoritesAction, mainMusicsAction } from '../../redux/actions';
@@ -17,17 +17,13 @@ function MainMusics(props) {
   const [, updateFavorites] = useState([]);
   const functions = { stateFavorites, dispatchFavorites };
   const thumbs = JSON.parse(localStorage.getItem('thumbs'));
-  const [preview, listenAudio] = useListenAudio();
-
-  useEffect(() => {
-    console.log('useEffect');
-  }, [preview])
+  const [, listenAudio] = useListenAudio();
 
   return (
     <Container>
       { (stateMainMusics && stateMainMusics.length > 0) 
-        ? stateMainMusics.map((elem, index) => (
-          <Card key={ index } >
+        ? stateMainMusics.map((elem) => (
+          <Card key={ elem.artist } >
             <a href={ elem.artist.link } target="blank">
               <i className="fab fa-deezer deezer"></i>
             </a>

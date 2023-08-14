@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Container, Card, Infos, Thumbs, MinorContainer } from './styles'
 import { Header } from '../../components'
 import { favoritesAction } from '../../redux/actions';
 import addToFavorites from '../../utils/addToFavorite';
-import listenAudio from '../../utils/useListenAudio';
+import useListenAudio from '../../utils/useListenAudio';
 
 function Favorites({ history, dispatchFavorites, stateFavorites }) {
-  const [preview, setPreview] = useState([]);
+  const [, listenAudio] = useListenAudio();
 
   useEffect(() => {
     if(!localStorage.favorites) {
@@ -28,8 +28,8 @@ function Favorites({ history, dispatchFavorites, stateFavorites }) {
       <Header history={ history } />
       <MinorContainer>
         { (stateFavorites && stateFavorites.length)
-          ? stateFavorites.map((elem, index) => (
-            <Card key={ index } >
+          ? stateFavorites.map(elem => (
+            <Card key={ elem.artist } >
               <a href={ elem.link } target="blank">
                 <i className="fab fa-deezer deezer"></i>
               </a>
@@ -50,7 +50,7 @@ function Favorites({ history, dispatchFavorites, stateFavorites }) {
                   <i className="far fa-thumbs-up off"></i>
                 }
               </Thumbs>
-              <button onClick={ () => listenAudio(elem.id, preview, setPreview) } >
+              <button onClick={ () => listenAudio(elem.id) } >
                 <i className={`fas fa-play play-${elem.id}`}></i>
               </button>
               <audio src={ elem.preview } preload='auto' id={ elem.id } />

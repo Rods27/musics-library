@@ -18,8 +18,8 @@ function GenresLists({ dispatchArtistsByGenre, stateGenres }) {
   return (
     <Container>
       { (stateGenres && stateGenres.length > 0)
-        ? stateGenres.map( (elem, index) =>
-          <button key={ index } onClick={ () => getArtistsFromGenre(elem.id) }>
+        ? stateGenres.map(elem =>
+          <button key={ elem.name } onClick={ () => getArtistsFromGenre(elem.id) }>
             <Card style={ { backgroundImage: `url(${elem.picture_big})` } }>
               <Title>{elem.name}</Title>
             </Card>
