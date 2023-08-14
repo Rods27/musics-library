@@ -5,12 +5,12 @@ An application to play and choose your favorite musics, you can listen a preview
 
 ## Indice
 * [Deploy](#deploy)
-* [Technologies](#tecnologias)
-* [Installation](#instalação)
-* [Initializing](#inicializando)
-* [Functionalities](#funcionalidades)
-  * [Main Screen](#telaprincipal---musics)
-  * [Favorites](#teladefavoritos---musics---favorites)
+* [Technologies](#Technologies)
+* [Installation](#installation)
+* [Initializing](#initializing)
+* [Functionalities](#functionalities)
+  * [Main Screen](#mainscreen---musics)
+  * [Favorites](#favorites---musics---favorites)
 
 ## Screenshots
 
