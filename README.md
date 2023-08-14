@@ -1,8 +1,6 @@
 
 # Musics Library
 
-Uma aplicação para ouvir e escolher suas músicas preferidas, pode ouvir uma prévia delas, ou ser redirecionado para o site da deezer e ouvir completa, pode filtrar por gênero, artista, e album.
-
 An application to play and choose your favorite musics, you can listen a preview or be redirected to deezer's website and listem the complete version. You can filter by genre, artist and album too.
 
 ## Indice
