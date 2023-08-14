@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/musics-library/static/js/main.6def1d38.chunk.js",
-    "main.js.map": "/musics-library/static/js/main.6def1d38.chunk.js.map",
+    "main.js": "/musics-library/static/js/main.7ce4e8a9.chunk.js",
+    "main.js.map": "/musics-library/static/js/main.7ce4e8a9.chunk.js.map",
     "runtime-main.js": "/musics-library/static/js/runtime-main.6e394b4b.js",
     "runtime-main.js.map": "/musics-library/static/js/runtime-main.6e394b4b.js.map",
     "static/css/2.5a1b660c.chunk.css": "/musics-library/static/css/2.5a1b660c.chunk.css",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.6e394b4b.js",
     "static/css/2.5a1b660c.chunk.css",
     "static/js/2.faf6c17a.chunk.js",
-    "static/js/main.6def1d38.chunk.js"
+    "static/js/main.7ce4e8a9.chunk.js"
   ]
 }
