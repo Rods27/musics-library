@@ -3,14 +3,16 @@
 
 Uma aplicação para ouvir e escolher suas músicas preferidas, pode ouvir uma prévia delas, ou ser redirecionado para o site da deezer e ouvir completa, pode filtrar por gênero, artista, e album.
 
+An application to play and choose your favorite musics, you can listen a preview or be redirected to deezer's website and listem the complete version. You can filter by genre, artist and album too.
+
 ## Indice
 * [Deploy](#deploy)
-* [Tecnologias](#tecnologias)
-* [Instalação](#instalação)
-* [Inicializando](#Inicializando)
-* [Funcionalidades](#funcionalidades)
-  * [Tela Principal](#telaprincipal---musics)
-  * [Tela de Favoritos](#teladefavoritos---musics---favorites)
+* [Technologies](#tecnologias)
+* [Installation](#instalação)
+* [Initializing](#inicializando)
+* [Functionalities](#funcionalidades)
+  * [Main Screen](#telaprincipal---musics)
+  * [Favorites](#teladefavoritos---musics---favorites)
 
 ## Screenshots
 
@@ -23,10 +25,10 @@ Uma aplicação para ouvir e escolher suas músicas preferidas, pode ouvir uma p
 <img align="center" src="client/public/img/4.jpg" width="400" />
 
 ## Deploy
-<a href=https://rods27.github.io/musics-library/ target="blank">Link para o teste da aplicação</a>
-Ou cole https://rods27.github.io/musics-library/ no navegador.
+<a href=https://rods27.github.io/musics-library/ target="blank">Github Link to test the application.</a>
+or paste https://rods27.github.io/musics-library/ in your browser.
 
-## Tecnologias
+## Technologies
 <ul>
   <li>Javascript</li>
   <li><a href="https://reactjs.org">React</a></li>
@@ -34,57 +36,69 @@ Ou cole https://rods27.github.io/musics-library/ no navegador.
   <li><a href="https://styled-components.com/">Styled Components</a></li>
 </ul>
 
-## Instalação
-Assim que tiver clonado o repositório, usando o terminal do [vscode](https://code.visualstudio.com/) ou o terminal do seu sistema operacional.
-- Installe as dependencias usando :
+## Installation
+Once you've cloned the repository using the [vscode](https://code.visualstudio.com/) terminal or on your sistem terminal.
+- Install the depencencies using:
 ```
 npm install
 ```
-Faça o comando tanto na pasta ```client``` e ```server```.
+Do the command in both ```client``` and ```server``` folders.
 
-## Inicializando
-Esta aplicação faz requisições a uma API da deezer, como a aplicação usa a rota localhost, a deezer bloqueia requisições de outros domínios, assim como do localhost.
-Para a aplicação funcionar, basta ir na pasta ```server``` abrir o terminar e digitar ```npm start```.
-Logo em seguida, vá a pasta ```client``` abra o terminal e digite ```npm start```.
+## Initializing
+This application do requests to deezer's API, as the application uses the localhost, the deezer api blocks requests from another domains, like localhost.
+So, you need to go in ```server``` folder, open the terminal and paste ```npm start``` in terminal.
+Do the same command on ```client``` folder, ```npm start```.
 
 
-## Funcionalidades
-[Voltar ao Indice](#indice)
-#### Tela Principal ```/musics``` 
+## Functionalities
+#### Main Screen ```/musics``` 
   <ul>
-    Filtro de Gênero musical:
-    <li>O usuario pode escolher um gênero, e irá filtrar os artistas pelo gênero.</li>
-    <ul>
-      <li>Assim que filtrar o usuário pode escolher um artista e filtrar as músicas mais ouvidas dele.</li>
-      <li>O usuário pode ouvir a prévia de 30s da música e pode adicioná-la as favoritos.</li>
-      <li>Caso o usuário prefira, ao clicar no botão será redirecionado ao site da deezer pra ouvir a versão completa.</li>
-    </ul>
-    Principais Músicas:
-    <li>Nesta parte da tela, serão mostradas as principais músicas do momento pela Deezer.</li>
-    <li>O usuário pode ouvir a prévia de 30s da música e pode adicioná-la as favoritos.</li>
-    <li>Caso o usuário prefira, ao clicar no botão será redirecionado ao site da deezer pra ouvir a versão completa.</li>
-    Header:
-    <ul>
-      <li>O usuário pode digitar alguma palavra e filtrar por músicas na tela de músicas principais.</li>
-      Botão da Lupa:
-      <li>Pesquisará pela palavra digitada no campo de pesquisa.</li>
-      Botão de Coração:
-      <li>Será redirecionado aos favoritos.</li>
-      Botão de Casa:
-      <li>Será redirecionado a Tela Principal.</li>
-    </ul>
+    <li>Filter by genre:
+      <ul>
+        <li>The user can filter by genre and display all artists associated with the selected genre.</li>
+        <li>After applying the filter, the user can select an artist and further filter their most listened-to songs.</li>
+        <li>The user can preview a 30-second snippet of the song and add it to their favorites.</li>
+        <li>If the user prefers, clicking the button will redirect them to the Deezer website to listen to the complete version.</li>
+      </ul>
+    </li>
+    <li>Main Songs:
+      <ul>
+        <li>In this section of the screen, the current top songs on Deezer will be displayed.</li>
+        <li>The user can preview a 30-second snippet of the song and add it to their favorites.</li>
+        <li>If the user prefers, clicking the button will redirect them to the Deezer website to listen to the complete version.</li>
+      </ul>
+    </li>
+    <li>Header:
+      <ul>
+        <li>The user can enter a keyword to search for songs on the main songs screen.</li>
+        <li>Search Button:
+          <ul>
+            <li>Will search for the entered keyword in the search field.</li>
+          </ul>
+        </li>
+        <li>Heart Button(Favorites):
+          <ul>
+            <li>Will redirect to the favorites.</li>
+          </ul>
+        </li>
+        <li>Home Button:
+          <ul>
+            <li>Will redirect to the Main Screen.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul><br>
   
- #### Tela de Favoritos  ```/musics/favorites```
+ #### Favorites  ```/musics/favorites```
   <ul>
-    <li>Nesta parte da tela, serão mostradas as músicas favoritas do usuário.</li>
-    <li>O usuário pode ouvir a prévia de 30s da música e pode e removê-las dos favoritos.</li>
-    <li>Caso o usuário prefira, ao clicar no botão será redirecionado ao site da deezer pra ouvir a versão completa.</li>
+    <li>In this section of the screen, the user's favorite songs will be displayed.</li>
+    <li>The user can preview a 30-second snippet of the song, and they can also remove them from favorites.</li>
+    <li>If the user prefers, clicking the button will redirect them to the Deezer website to listen to the complete version.</li>
   </ul><br>
   
- [Voltar ao Indice](#indice)
 ## Feedback 
 
-Ficarei bem agradecido caso queira me dar um feedback costrutivo, caso queira meus contatos estarão abaixo!
+I would greatly appreciate it if you could provide me with constructive feedback. If you'd like to get in touch, my contactin formation is provided below!
 
-Email: rods.leite27@gmail.com e <a href="https://linkedin.com/in/rodrigoleite27">Linkedin</a>.
+Email: rods.leite27@gmail.com or <a href="https://linkedin.com/in/rodrigoleite27">Linkedin</a>.
