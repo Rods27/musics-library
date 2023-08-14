@@ -1,7 +1,7 @@
 
 # Musics Library
 
-An application to play and choose your favorite musics, you can listen a preview or be redirected to deezer's website and listem the complete version. You can filter by genre, artist and album too.
+An application to play and choose your favorite musics, you can listen a preview or be redirected to deezer's website and listen the complete version. You can filter by genre, artist and album too.
 
 ## Indice
 * [Deploy](#deploy)
