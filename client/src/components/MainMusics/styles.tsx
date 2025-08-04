@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import collorPallete from '../../utils/collor-pallete'
+
+import Play from '@src/assets/svg/play.svg?react';
+
+import collorPallete from '../../utils/collor-pallete';
 
 export const Container = styled.div`
   display: flex;
@@ -13,7 +16,7 @@ export const Container = styled.div`
   padding: 20px 0;
   width: 800px;
   max-height: 1320px;
-  @media (min-width: 1300px) { 
+  @media (min-width: 1300px) {
     width: 45%;
   }
   h1 {
@@ -32,7 +35,9 @@ export const Container = styled.div`
   span {
     font-size: 13px;
   }
-  a { color: inherit; } 
+  a {
+    color: inherit;
+  }
   .deezer {
     position: absolute;
     font-size: 32px;
@@ -42,7 +47,7 @@ export const Container = styled.div`
     padding: 2px;
     border-radius: 4px;
     &:hover {
-      transition: .1s;
+      transition: 0.1s;
       color: ${collorPallete.lightBlack};
       background-color: ${collorPallete.darkWhite};
       border: 0.1px solid rgba(0, 0, 0, 0.5);
@@ -57,7 +62,7 @@ export const Container = styled.div`
     border: none;
     i {
       font-size: 20px;
-      color: #0fa36b
+      color: #0fa36b;
     }
   }
   #duration {
@@ -65,8 +70,8 @@ export const Container = styled.div`
     bottom: 10px;
     right: 40px;
   }
-  `;
-  
+`;
+
 export const Card = styled.div`
   position: relative;
   display: flex;
@@ -89,22 +94,24 @@ export const Infos = styled.div`
   justify-content: center;
   width: 70%;
   height: 80px;
-`
+`;
 
-export const Thumbs = styled.div `
+export const Thumbs = styled.div`
   position: absolute;
   right: 3.5px;
   bottom: 50px;
   background: none;
   border: none;
-  i {font-size: 25px;}
+  i {
+    font-size: 25px;
+  }
   .on {
-    color: ${collorPallete.blue}
+    color: ${collorPallete.blue};
   }
   .off {
-    color: ${collorPallete.darkerWhite}
+    color: ${collorPallete.darkerWhite};
   }
-`
+`;
 
 export const LoaderDiv = styled.div`
   display: flex;
@@ -112,4 +119,11 @@ export const LoaderDiv = styled.div`
   align-items: center;
   width: 100vh;
   height: 100%;
-`
+`;
+
+export const PlayIcon = styled(Play)`
+  font-size: 25px;
+  path {
+    fill: #0fa36b;
+  }
+`;

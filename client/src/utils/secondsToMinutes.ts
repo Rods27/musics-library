@@ -1,4 +1,4 @@
-export default function secondsToMinutes(musics) {
+export default function secondsToMinutes(musics: any[]) {
   musics.forEach((elem) => {
     let seconds = Number(elem.duration);
     let min = Math.floor(seconds % 3600 / 60);
@@ -7,4 +7,4 @@ export default function secondsToMinutes(musics) {
     newSec = sec < 10 ? "0" : "";
     elem.duration = `${min}:${newSec}${sec}`;
   })
-}
+} 

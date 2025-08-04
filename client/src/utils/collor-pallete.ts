@@ -9,4 +9,4 @@ const collorPallete = {
   blue: 'royalblue',
 }
 
-export default collorPallete;
+export default collorPallete; 

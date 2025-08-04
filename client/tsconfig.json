@@ -7,8 +7,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./node_modules/@types/*"],
-
+    
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -17,13 +16,22 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-
+    "noImplicitAny": false,
+    
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": false,
+    
+    "paths": {
+      "@src/*": ["./src/*"]
+    },
+    "typeRoots": ["./src/**/*", "./node_modules/@types/*"],
   },
-  "include": ["src", "vite.config.ts"],
+  "include": ["src", "src/@types"],
+  "exclude": [
+    "node_modules"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }],
 }

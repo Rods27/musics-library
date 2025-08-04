@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Home({ history }) {
-  useEffect(() => history.push('/musics'));
-   return (
-    <div>Home</div>
-  );
+function Home() {
+  const navigate = useNavigate();
+
+  useEffect(() => navigate('/musics'));
+  return <div>Home</div>;
 }
-
-Home.propTypes = {
-  history: PropTypes.shape().isRequired,
-};
 
 export default Home;

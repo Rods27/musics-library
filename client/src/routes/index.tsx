@@ -1,15 +1,16 @@
 import React from 'react';
-import { Home, Musics, Favorites } from '../pages';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-function Routes() {
+import { Home, Musics, Favorites } from '../pages';
+
+function AppRoutes() {
   return (
-    <Switch>
-      <Route exact path="/" component={ Home } />
-      <Route exact path="/musics" component={ Musics } />
-      <Route exact path="/musics/favorites" component={ Favorites } />
-    </Switch>
+    <Routes>
+      <Route path="/*" element={<Home />} />
+      <Route path="/musics" element={<Musics />} />
+      <Route path="/musics/favorites" element={<Favorites />} />
+    </Routes>
   );
 }
 
-export default Routes
+export default AppRoutes;
