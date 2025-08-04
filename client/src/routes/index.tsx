@@ -1,12 +1,12 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { Home, Musics, Favorites } from '../pages';
+import { Musics, Favorites } from '../pages';
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/*" element={<Home />} />
+      <Route path="/*" element={<Navigate to="/musics" />} />
       <Route path="/musics" element={<Musics />} />
       <Route path="/musics/favorites" element={<Favorites />} />
     </Routes>

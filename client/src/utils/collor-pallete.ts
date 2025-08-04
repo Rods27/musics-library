@@ -7,6 +7,6 @@ const collorPallete = {
   darkestWhite: '#BBB5B5',
   trybeGreen: '#0fa36b',
   blue: 'royalblue',
-}
+};
 
-export default collorPallete; 
+export default collorPallete;

@@ -1,45 +1,58 @@
-import React from 'react';
+import { useCallback, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useMusicsStore } from '@src/store/modules';
 
 import getFromDeezer from '../../services/getFromDeezer';
-import { useMusicStoreTemp } from '../../store';
 import cutAlbumAndTitle from '../../utils/cutAlbumAndTitle';
 import secondsToMinutes from '../../utils/secondsToMinutes';
-import { HeaderContainer, Container, SearchBtn, HomeBtn, FavBtn } from './styles';
+import * as S from './styles';
 
 function Header() {
-  const { setQueryMusics } = useMusicStoreTemp();
+  const ref = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
-  async function searchForQuery() {
-    const searchInput = document.getElementById('search') as HTMLInputElement;
-    const query = searchInput?.value;
+  const setMainMusics = useMusicsStore((state) => state.setMainMusics);
+
+  const searchForQuery = useCallback(async () => {
+    if (!ref?.current) return;
+    const query = ref.current.value;
+
+    navigate(`/musics?search=${encodeURIComponent(query)}`);
+
     if (query && query.length > 0) {
-      const search = await getFromDeezer(`https://api.deezer.com/search?q=${query}&limit=50`);
-      secondsToMinutes(search.data);
-      cutAlbumAndTitle(search.data);
-      setQueryMusics(search.data, true);
+      const { data } = await getFromDeezer(`https://api.deezer.com/search?q=${query}&limit=50`);
+      secondsToMinutes(data);
+      cutAlbumAndTitle(data);
+      setMainMusics(data);
     }
-  }
+  }, [navigate, setMainMusics]);
 
   return (
-    <HeaderContainer>
-      <Container>
-        <SearchBtn
+    <S.HeaderContainer>
+      <S.Container>
+        <S.SearchWrapper
           data-testid="search-btn"
           onClick={() => {
             searchForQuery();
           }}
         >
-          <i className="fas fa-search"></i>
-        </SearchBtn>
-        <input data-testid="search-input" id="search" />
-        <FavBtn data-testid="favorite-btn" onClick={() => history.push('/musics/favorites')}>
-          <i className="fas fa-heart"></i>
-        </FavBtn>
-        <HomeBtn data-testid="home-btn" onClick={() => history.push('/musics')}>
-          <i className="fas fa-home"></i>
-        </HomeBtn>
-      </Container>
-    </HeaderContainer>
+          <S.SearchIcon />
+        </S.SearchWrapper>
+        <S.SearchInput
+          data-testid="search-input"
+          id="search"
+          ref={ref}
+          onKeyDown={(e) => e.key === 'Enter' && searchForQuery()}
+        />
+        <S.FavBtn data-testid="favorite-btn" onClick={() => navigate('/musics/favorites')}>
+          <S.FavIcon />
+        </S.FavBtn>
+        <S.HomeBtn data-testid="home-btn" onClick={() => navigate('/musics')}>
+          <S.HomeIcon />
+        </S.HomeBtn>
+      </S.Container>
+    </S.HeaderContainer>
   );
 }
 

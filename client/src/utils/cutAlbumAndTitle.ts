@@ -1,4 +1,6 @@
-export default function cutAlbumAndTitle(musics: any[]) {
+import type { IMusics } from '@src/interfaces/musics';
+
+export default function cutAlbumAndTitle(musics: IMusics[]) {
   musics.forEach((elem) => {
     const music = elem.title;
     const album = elem.album.title;

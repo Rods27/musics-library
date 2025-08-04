@@ -1,73 +1,37 @@
-import React, { useEffect } from 'react';
 import Loader from 'react-js-loader';
-import { useNavigate } from 'react-router-dom';
 
 import { useMusicsStore } from '@src/store/modules';
+import { useGenresStore } from '@src/store/modules/genres';
 
-import { Header, GenresList, QueryMusics, ArtistsByGenre, MusicsByGenre } from '../../components';
-import { useMusicStoreTemp } from '../../store';
-import { fetchGenresToZustand, fetchMusicsToZustand } from '../../utils/fetchToRedux';
-import MainMusics from './MainMusics';
-import {
-  Container,
-  MinorContainer,
-  GenresTitle,
-  MainMusicsTitle,
-  TitleContainer,
-  LoaderDiv,
-  BackWardDiv,
-} from './styles';
+import { Header } from '../../components';
+import { useInitialFetch } from '../hooks/useInitialFetch';
+import GenresList from './GenresList';
+import { MusicsContainer } from './MainMusics';
+import * as S from './styles';
 
 function Musics() {
-  const navigate = useNavigate();
-  const {
-    renderQuery,
-    renderArtists,
-    renderMusics,
-    genres: stateGenres,
-    setRenderState,
-  } = useMusicStoreTemp();
-
   const mainMusics = useMusicsStore((state) => state.mainMusics);
+  const genres = useGenresStore((state) => state.genres);
 
-  useEffect(() => {
-    fetchGenresToZustand();
-    fetchMusicsToZustand();
-  }, []);
-
-  const manipulateRender = (artists: boolean, musics: boolean) => {
-    setRenderState(artists, musics);
-  };
+  useInitialFetch();
 
   return (
-    <Container>
+    <S.Container>
       <Header />
-      {mainMusics.length > 0 && stateGenres.length > 0 ? (
-        <div>
-          <TitleContainer>
-            <BackWardDiv onClick={() => manipulateRender(false, false)}>
-              <i className="fas fa-backward"></i>
-            </BackWardDiv>
-            <GenresTitle>Generos</GenresTitle>
-            <MainMusicsTitle>Principais Músicas</MainMusicsTitle>
-          </TitleContainer>
-          <MinorContainer>
-            {!renderMusics && !renderArtists ? (
-              <GenresList history={{ push: navigate }} />
-            ) : renderArtists ? (
-              <ArtistsByGenre history={{ push: navigate }} />
-            ) : (
-              <MusicsByGenre history={{ push: navigate }} />
-            )}
-            {renderQuery ? <QueryMusics history={{ push: navigate }} /> : <MainMusics />}
-          </MinorContainer>
-        </div>
+      {!!mainMusics.length && !!genres.length ? (
+        <S.BodyContainer>
+          <S.TopWrapper>
+            <GenresList />
+          </S.TopWrapper>
+
+          <S.BottomWrapper>{<MusicsContainer state={mainMusics} />}</S.BottomWrapper>
+        </S.BodyContainer>
       ) : (
-        <LoaderDiv>
+        <S.LoaderDiv>
           <Loader type="spinner-cub" bgColor={'#333'} size={String(120)} />
-        </LoaderDiv>
+        </S.LoaderDiv>
       )}
-    </Container>
+    </S.Container>
   );
 }
 

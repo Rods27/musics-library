@@ -4,7 +4,19 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          [
+            'babel-plugin-styled-components',
+            {
+              displayName: true,
+              fileName: false,
+            },
+          ],
+        ],
+      },
+    }),
     svgr({
       svgrOptions: {
         icon: true,
@@ -14,6 +26,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@src': '/src',
+    },
+  },
+  server: {
+    hmr: {
+      overlay: true,
+    },
+    watch: {
+      usePolling: true,
     },
   },
 });

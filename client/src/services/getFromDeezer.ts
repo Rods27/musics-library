@@ -2,14 +2,16 @@ import axios from 'axios';
 
 const localhost = 'http://localhost:3001/';
 
-// const heroku = "http://rods27-musics-library.herokuapp.com/"
+const netlify = 'https://preeminent-cobbler-35c194.netlify.app/';
 
 export default async function getFromDeezer(url: string) {
   const response = await axios
-    .get(`${localhost}`, {
+    .get(`${netlify}`, {
       headers: { url },
     })
-    .then((response) => response.data)
-    .catch(console.error);
+    .then(({ data }) => data)
+    .catch((error) => {
+      throw new Error(error);
+    });
   return response;
 }

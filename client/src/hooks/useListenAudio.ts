@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 export const useListenAudio = (
   audioRefs: React.RefObject<{ [key: string]: HTMLAudioElement | null }>,
@@ -28,7 +28,14 @@ export const useListenAudio = (
   const setAudioRef = useCallback(
     (id: string) => (element: HTMLAudioElement | null) => {
       audioRefs.current[id] = element;
+    },
+    [audioRefs],
+  );
 
+  useEffect(() => {
+    const elements = Object.entries(audioRefs.current);
+
+    elements.forEach(([id, element]) => {
       if (element) {
         const handleEnded = () => {
           if (playingId === id) {
@@ -42,9 +49,8 @@ export const useListenAudio = (
           element.removeEventListener('ended', handleEnded);
         };
       }
-    },
-    [audioRefs, playingId],
-  );
+    });
+  }, [playingId, audioRefs]);
 
   return { handlePlayPause, setAudioRef, playingId };
 };
