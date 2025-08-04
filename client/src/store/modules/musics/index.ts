@@ -3,12 +3,12 @@ import { immer } from 'zustand/middleware/immer';
 
 import type { IMusics } from '@src/interfaces/musics';
 
-interface IStoreTags {
+interface IMusicsStore {
   mainMusics: IMusics[];
   setMainMusics: (mainMusics: IMusics[]) => void;
 }
 
-export const useMusicsStore = create<IStoreTags>()(
+export const useMusicsStore = create<IMusicsStore>()(
   immer((set) => ({
     mainMusics: [],
     setMainMusics: (mainMusics) =>

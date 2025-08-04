@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { useListenAudio } from '@src/hooks/useListenAudio';
 
 import { Header } from '../../components';
 import { useMusicStoreTemp } from '../../store';
 import addToFavorites from '../../utils/addToFavorite';
-import useListenAudio from '../../utils/useListenAudio';
 import { Container, Card, Infos, Thumbs, MinorContainer } from './styles';
 
 function Favorites() {
   const navigate = useNavigate();
   const { favorites: stateFavorites, setFavorites } = useMusicStoreTemp();
-  const [, listenAudio] = useListenAudio();
+  const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
+  const { handlePlayPause, setAudioRef, playingId } = useListenAudio(audioRefs);
 
   useEffect(() => {
     if (!localStorage.favorites) {
@@ -53,10 +55,15 @@ function Favorites() {
                     <i className="far fa-thumbs-up off"></i>
                   )}
                 </Thumbs>
-                <button onClick={() => listenAudio(elem.id)}>
-                  <i className={`fas fa-play play-${elem.id}`}></i>
+                <button onClick={() => handlePlayPause(String(elem.id))}>
+                  <PlayIcon $play={playingId === String(elem.id)} />
                 </button>
-                <audio src={elem.preview} preload="auto" id={elem.id} />
+                <audio
+                  ref={setAudioRef(String(elem.id))}
+                  src={elem.preview}
+                  preload="auto"
+                  id={String(elem.id)}
+                />
               </Card>
             ))
           : 'Não há músicas favoritas.'}

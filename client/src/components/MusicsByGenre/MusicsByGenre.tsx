@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Loader from 'react-js-loader';
+
+import { useListenAudio } from '@src/hooks/useListenAudio';
 
 import { useMusicStoreTemp } from '../../store';
 import addToFavorites from '../../utils/addToFavorite';
-import useListenAudio from '../../utils/useListenAudio';
 import { Container, Card, Infos, Thumbs, LoaderDiv, PlayIcon } from './styles';
 
 function MusicsByGenre({ history }: { history: any }) {
+  const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
   const { musicsByGender, favorites: stateFavorites } = useMusicStoreTemp();
+
   const [, updateFavorites] = useState([]);
   const thumbs = JSON.parse(localStorage.getItem('thumbs') || '[]');
-  const [, listenAudio] = useListenAudio();
+
+  const { handlePlayPause, setAudioRef, playingId } = useListenAudio(audioRefs);
 
   return (
     <Container>
@@ -39,10 +43,15 @@ function MusicsByGenre({ history }: { history: any }) {
                 <i className="far fa-thumbs-up off"></i>
               )}
             </Thumbs>
-            <button onClick={() => listenAudio(elem.id)}>
-              <PlayIcon />
+            <button onClick={() => handlePlayPause(String(elem.id))}>
+              <PlayIcon $play={playingId === String(elem.id)} />
             </button>
-            <audio src={elem.preview} preload="auto" id={elem.id} />
+            <audio
+              ref={setAudioRef(String(elem.id))}
+              src={elem.preview}
+              preload="auto"
+              id={String(elem.id)}
+            />
           </Card>
         ))
       ) : (

@@ -4,16 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { useMusicsStore } from '@src/store/modules';
 
-import {
-  MainMusics,
-  Header,
-  GenresList,
-  QueryMusics,
-  ArtistsByGenre,
-  MusicsByGenre,
-} from '../../components';
+import { Header, GenresList, QueryMusics, ArtistsByGenre, MusicsByGenre } from '../../components';
 import { useMusicStoreTemp } from '../../store';
 import { fetchGenresToZustand, fetchMusicsToZustand } from '../../utils/fetchToRedux';
+import MainMusics from './MainMusics';
 import {
   Container,
   MinorContainer,
@@ -35,7 +29,6 @@ function Musics() {
   } = useMusicStoreTemp();
 
   const mainMusics = useMusicsStore((state) => state.mainMusics);
-  console.log(mainMusics);
 
   useEffect(() => {
     fetchGenresToZustand();
@@ -48,8 +41,7 @@ function Musics() {
 
   return (
     <Container>
-      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-      <Header history={{ push: navigate }} />
+      <Header />
       {mainMusics.length > 0 && stateGenres.length > 0 ? (
         <div>
           <TitleContainer>

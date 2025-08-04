@@ -6,7 +6,7 @@ import cutAlbumAndTitle from '../../utils/cutAlbumAndTitle';
 import secondsToMinutes from '../../utils/secondsToMinutes';
 import { HeaderContainer, Container, SearchBtn, HomeBtn, FavBtn } from './styles';
 
-function Header({ history }: { history: any }) {
+function Header() {
   const { setQueryMusics } = useMusicStoreTemp();
 
   async function searchForQuery() {

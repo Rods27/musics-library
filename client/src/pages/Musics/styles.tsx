@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import collorPallete from '../../utils/collor-pallete'
+
+import collorPallete from '../../utils/collor-pallete';
 
 export const Container = styled.div`
   display: flex;
@@ -23,16 +24,16 @@ export const TitleContainer = styled.div`
   right: 0;
   min-width: 100%;
   height: 50vh;
-`
+`;
 
 export const GenresTitle = styled.h1`
   color: #333;
   min-width: 35%;
-`
+`;
 export const MainMusicsTitle = styled.h1`
   min-width: 40%;
   color: #333;
-`
+`;
 
 export const LoaderDiv = styled.div`
   display: flex;
@@ -41,7 +42,7 @@ export const LoaderDiv = styled.div`
   color: #333;
   height: 100vh;
   width: 100vh;
-`
+`;
 
 export const BackWardDiv = styled.button`
   position: absolute;
@@ -58,7 +59,7 @@ export const BackWardDiv = styled.button`
   -webkit-text-shadow: 0 0 2px #fff;
   color: ${collorPallete.lightBlack};
   &:hover {
-    transition: .1s;
+    transition: 0.1s;
     color: ${collorPallete.darkestWhite};
     text-shadow: 0 0 2px #000;
     -moz-text-shadow: 0 0 2px #000;
@@ -67,4 +68,4 @@ export const BackWardDiv = styled.button`
   i {
     font-size: 35px;
   }
-`
+`;

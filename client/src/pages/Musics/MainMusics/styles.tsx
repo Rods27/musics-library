@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import Play from '@src/assets/svg/play.svg?react';
-
-import collorPallete from '../../utils/collor-pallete';
+import collorPallete from '../../../utils/collor-pallete';
 
 export const Container = styled.div`
   display: flex;
@@ -54,22 +52,6 @@ export const Container = styled.div`
       opacity: 0.8;
     }
   }
-  button {
-    position: absolute;
-    right: 2px;
-    bottom: 8px;
-    background: none;
-    border: none;
-    i {
-      font-size: 20px;
-      color: #0fa36b;
-    }
-  }
-  #duration {
-    position: absolute;
-    bottom: 10px;
-    right: 40px;
-  }
 `;
 
 export const Card = styled.div`
@@ -88,29 +70,49 @@ export const Card = styled.div`
   border-radius: 7px;
 `;
 
+export const InfosWrapper = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, calc(100% - 40px)) minmax(40px, 40px);
+`;
+
 export const Infos = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 70%;
-  height: 80px;
+  justify-content: space-around;
+  align-items: end;
+  gap: 2px;
+  padding-left: 10px;
+
+  h4 {
+    text-align: center;
+  }
+
+  span,
+  h4 {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
-export const Thumbs = styled.div`
+export const ButtonsWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const FavoritesWrapper = styled.div`
   position: absolute;
-  right: 3.5px;
-  bottom: 50px;
-  background: none;
-  border: none;
-  i {
-    font-size: 25px;
-  }
-  .on {
-    color: ${collorPallete.blue};
-  }
-  .off {
-    color: ${collorPallete.darkerWhite};
-  }
+  top: 0px;
+`;
+
+export const PlayPauseWrapper = styled.div`
+  position: absolute;
+  top: 45px;
 `;
 
 export const LoaderDiv = styled.div`
@@ -119,11 +121,4 @@ export const LoaderDiv = styled.div`
   align-items: center;
   width: 100vh;
   height: 100%;
-`;
-
-export const PlayIcon = styled(Play)`
-  font-size: 25px;
-  path {
-    fill: #0fa36b;
-  }
 `;

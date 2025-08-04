@@ -122,9 +122,9 @@ export const LoaderDiv = styled.div`
   height: 100%;
 `;
 
-export const PlayIcon = styled(Play)`
+export const PlayIcon = styled(Play)<{ $play: boolean }>`
   font-size: 25px;
   path {
-    fill: #0fa36b;
+    fill: ${({ $play }) => ($play ? 'crimson' : '#0fa36b')};
   }
 `;
