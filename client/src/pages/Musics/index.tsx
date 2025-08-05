@@ -3,7 +3,7 @@ import Loader from 'react-js-loader';
 import { useMusicsStore } from '@src/store/modules';
 import { useGenresStore } from '@src/store/modules/genres';
 
-import { Header } from '../../components';
+import Header from '../../components/Header';
 import { useInitialFetch } from '../hooks/useInitialFetch';
 import GenresList from './GenresList';
 import { MusicsContainer } from './MainMusics';

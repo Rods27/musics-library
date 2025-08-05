@@ -1,6 +1,6 @@
 import { useFavoritesStore } from '@src/store/modules';
 
-import { Header } from '../../components';
+import Header from '../../components/Header';
 import { MusicsContainer } from '../Musics/MainMusics';
 import * as S from './styles';
 

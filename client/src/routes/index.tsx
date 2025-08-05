@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { Musics, Favorites } from '../pages';
+import Favorites from '../pages/Favorites';
+import Musics from '../pages/Musics';
 
 function AppRoutes() {
   return (
