@@ -41,7 +41,21 @@ export const Card = styled.div`
     height: 100px;
     h1 {
       font-size: 16px;
+      margin: 7px;
     }
+  }
+
+  @media (max-width: 600px) {
+    width: 100px;
+    height: 75px;
+    h1 {
+      font-size: 16px;
+      margin: 7px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    margin: 4px;
   }
 `;
 

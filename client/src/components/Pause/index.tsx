@@ -16,6 +16,11 @@ const StyledPause = styled(PauseBase)<{ $size: number }>`
   path {
     fill: #ff4757;
   }
+
+  @media (max-width: 800px) {
+    font-size: 25px;
+    padding: 0px 2px 0 0;
+  }
 `;
 
 interface PauseProps {

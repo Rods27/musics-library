@@ -8,7 +8,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    min-width: 345px;
+    min-width: 350px;
   }
 
   /* width */

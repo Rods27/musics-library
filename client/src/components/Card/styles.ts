@@ -25,12 +25,29 @@ export const Card = styled.div`
     background-size: 120%;
     border-radius: 4px;
   }
+
+  @media (max-width: 800px) {
+    width: 100px;
+    height: 175px;
+    margin: 5px 5px;
+
+    img {
+      width: 75px;
+      height: 75px;
+      background-size: 120%;
+      border-radius: 4px;
+    }
+  }
 `;
 
 export const InfosWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: minmax(auto, calc(100% - 40px)) minmax(40px, 40px);
+
+  /* @media (max-width: 800px) {
+    grid-template-columns: minmax(auto, calc(100% - 25px)) minmax(20px, 20px);
+  } */
 `;
 
 export const Infos = styled.div`
@@ -60,6 +77,16 @@ export const Infos = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  @media (max-width: 800px) {
+    h4 {
+      font-size: 10px;
+    }
+
+    span {
+      font-size: 10px;
+    }
+  }
 `;
 
 export const ButtonsWrapper = styled.div`
@@ -73,11 +100,20 @@ export const ButtonsWrapper = styled.div`
 export const FavoritesWrapper = styled.div`
   position: absolute;
   top: 0px;
+
+  @media (max-width: 800px) {
+    top: -5px;
+    right: 5px;
+  }
 `;
 
 export const PlayPauseWrapper = styled.div`
   position: absolute;
   top: 45px;
+
+  @media (max-width: 800px) {
+    right: 0px;
+  }
 `;
 
 export const LinkIconWrapper = styled.a`
@@ -99,5 +135,9 @@ export const LinkIcon = styled(LinkIconBase)`
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media (max-width: 800px) {
+    font-size: 20px;
   }
 `;

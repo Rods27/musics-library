@@ -16,6 +16,10 @@ const StyledHeartEmpty = styled(HeartEmptyBase)<{ $size: number }>`
   path {
     fill: #ff4757;
   }
+
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
 `;
 
 interface HeartEmptyProps {

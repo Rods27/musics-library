@@ -8,6 +8,7 @@ const StyledPlay = styled(PlayBase)<{ $size: number }>`
   font-size: ${({ $size }) => $size}px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  padding-left: 5px;
 
   &:hover {
     transform: scale(1.05);
@@ -16,7 +17,10 @@ const StyledPlay = styled(PlayBase)<{ $size: number }>`
   path {
     fill: #0fa36b;
   }
-  padding-left: 5px;
+
+  @media (max-width: 800px) {
+    font-size: 25px;
+  }
 `;
 
 interface PlayProps {
