@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { useMusicsStore } from '@src/store/modules';
 import { useArtistStore } from '@src/store/modules/artists';
