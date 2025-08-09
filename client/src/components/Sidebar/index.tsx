@@ -40,7 +40,10 @@ export const SideBar = memo(() => {
     <S.SidebarContainer open={isOpen} aria-hidden={!isOpen}>
       <S.FilterHeader>
         <S.Title>Filtre por gênero e artista</S.Title>
-        <S.Back onClick={() => setArtist([])}>Voltar</S.Back>
+        <S.ButtonsWrapper>
+          {artist.length ? <S.Back onClick={() => setArtist([])} /> : null}
+          <S.Close onClick={() => toggleGenresSidebar()} />
+        </S.ButtonsWrapper>
       </S.FilterHeader>
       <S.List>
         {!artist.length

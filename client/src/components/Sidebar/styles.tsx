@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import BackIcon from '@src/assets/svg/back.svg?react';
+import CloseIcon from '@src/assets/svg/close.svg?react';
 import { collorPallete } from '@src/utils';
 
 export const SidebarContainer = styled.aside<{ open: boolean }>`
@@ -82,9 +83,41 @@ export const FilterHeader = styled.header`
   background-color: ${collorPallete.lightestBlack};
   color: white;
   font-weight: 700;
+
+  @media (max-width: 650px) {
+    padding: 10px;
+
+    span {
+      font-size: 0.8rem;
+    }
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  @media (max-width: 650px) {
+    gap: 10px;
+
+    svg {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 export const Back = styled(BackIcon)`
   cursor: pointer;
   font-size: 1.5rem;
+`;
+
+export const Close = styled(CloseIcon)`
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+
+  path {
+    fill: white;
+  }
 `;
