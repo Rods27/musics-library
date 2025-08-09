@@ -16,7 +16,7 @@ function Favorites() {
             <MusicsContainer state={favorites} />
           </S.Wrapper>
         ) : (
-          'Não há músicas favoritas.'
+          <S.NoFavorites>Não há músicas favoritas.</S.NoFavorites>
         )}
       </S.MinorContainer>
     </S.Container>

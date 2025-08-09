@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
+import collorPallete from '@src/utils/collor-pallete';
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
 
-export const BodyContainer = styled.div<{ $withSidebar?: boolean }>`
+export const BodyContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -16,27 +18,18 @@ export const BodyContainer = styled.div<{ $withSidebar?: boolean }>`
   max-width: 90%;
 `;
 
-export const TopWrapper = styled.div`
-  padding: 24px;
-  height: 25vh;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 40px;
-`;
-
-export const BottomWrapper = styled.div`
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 40px;
-  height: calc(85vh - 100px);
-`;
-
 export const MainColumn = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 40px;
+  height: calc(90vh - 100px);
+  padding: 20px 10px;
+  border-radius: 9px;
+  background-color: ${collorPallete.lightestBlack};
 `;
 
 export const LoaderDiv = styled.div`

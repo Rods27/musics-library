@@ -1,5 +1,5 @@
-import { useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useCallback, useMemo, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useMusicsStore } from '@src/store/modules';
 import { useUiStore } from '@src/store/modules/ui';
@@ -12,15 +12,16 @@ import * as S from './styles';
 function Header() {
   const ref = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isInFavorites = useMemo(() => pathname.includes('favorites'), [pathname]);
 
   const setMainMusics = useMusicsStore((state) => state.setMainMusics);
   const toggleGenresSidebar = useUiStore((state) => state.toggleGenresSidebar);
+  const setSearch = useUiStore((state) => state.setSearch);
 
   const searchForQuery = useCallback(async () => {
     if (!ref?.current) return;
     const query = ref.current.value;
-
-    navigate(`/musics?search=${encodeURIComponent(query)}`);
 
     if (query && query.length > 0) {
       const { data } = await getFromDeezer(`https://api.deezer.com/search?q=${query}&limit=50`);
@@ -28,14 +29,18 @@ function Header() {
       cutAlbumAndTitle(data);
       setMainMusics(data);
     }
-  }, [navigate, setMainMusics]);
+    setSearch(query);
+    navigate('/musics');
+  }, [navigate, setMainMusics, setSearch]);
 
   return (
     <S.HeaderContainer>
-      <S.Container>
+      {!isInFavorites && (
         <S.SidebarToggleBtn onClick={toggleGenresSidebar} aria-label="Abrir filtros de gêneros">
-          <S.FilterBadge>Gêneros</S.FilterBadge>
+          <S.FilterIcon />
         </S.SidebarToggleBtn>
+      )}
+      <S.Container>
         <S.SearchWrapper
           data-testid="search-btn"
           onClick={() => {
@@ -50,12 +55,16 @@ function Header() {
           ref={ref}
           onKeyDown={(e) => e.key === 'Enter' && searchForQuery()}
         />
-        <S.FavBtn data-testid="favorite-btn" onClick={() => navigate('/musics/favorites')}>
-          <S.FavIcon />
-        </S.FavBtn>
-        <S.HomeBtn data-testid="home-btn" onClick={() => navigate('/musics')}>
-          <S.HomeIcon />
-        </S.HomeBtn>
+
+        {isInFavorites ? (
+          <S.HomeBtn data-testid="home-btn" onClick={() => navigate('/musics')}>
+            <S.HomeIcon />
+          </S.HomeBtn>
+        ) : (
+          <S.FavBtn data-testid="favorite-btn" onClick={() => navigate('/musics/favorites')}>
+            <S.FavIcon />
+          </S.FavBtn>
+        )}
       </S.Container>
     </S.HeaderContainer>
   );

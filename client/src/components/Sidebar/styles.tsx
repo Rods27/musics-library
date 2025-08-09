@@ -1,25 +1,68 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import BackIcon from '@src/assets/svg/back.svg?react';
 import CloseIcon from '@src/assets/svg/close.svg?react';
 import { collorPallete } from '@src/utils';
 
-export const SidebarContainer = styled.aside<{ open: boolean }>`
-  display: ${({ open }) => (open ? 'initial' : 'none')};
+const moveInLeft = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const moveOutRight = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
+export const Overlay = styled.div<{ closeOverlay: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+
+  ${({ closeOverlay }) =>
+    !closeOverlay &&
+    css`
+      opacity: 0;
+    `}
+`;
+
+export const SidebarContainer = styled.aside`
   position: absolute;
   z-index: 1000;
-  top: 50px;
+  top: 0px;
   left: 0;
   bottom: 0;
   background-color: ${collorPallete.lightestBlack};
   border-right: 0.5px solid rgba(255, 255, 255, 0.2);
   overflow-y: auto;
   transition: width 0.25s ease;
-  width: ${({ open }) => (open ? '50vw' : '0')};
-  min-width: ${({ open }) => (open ? '250px' : '0')};
+  width: 50vw;
+  min-width: 250px;
   max-width: 600px;
   overflow-y: hidden;
-  height: calc(100vh - 50px);
+  height: 100vh;
+  animation: ${moveInLeft} 0.3s forwards;
+
+  &.closing {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    animation: ${moveOutRight} 0.3s forwards;
+  }
 `;
 
 export const List = styled.div`
@@ -28,7 +71,7 @@ export const List = styled.div`
   gap: 10px;
   padding: 12px;
   overflow-x: hidden;
-  height: calc(100% - 150px);
+  height: calc(100% - 100px);
   margin: 10px 10px 0;
   padding-right: 10px;
   max-height: 1300px;
@@ -79,7 +122,7 @@ export const FilterHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  border-bottom: 1px solid hsla(0, 0%, 90%, 0.4);
+  border-bottom: 2px solid hsla(0, 0%, 90%, 0.4);
   background-color: ${collorPallete.lightestBlack};
   color: white;
   font-weight: 700;

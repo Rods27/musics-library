@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import HeartFilledBase from '@src/assets/svg/heart-filled.svg?react';
 import HomeIconBase from '@src/assets/svg/home.svg?react';
 import SearchIconBase from '@src/assets/svg/search.svg?react';
+import SidebarIconBase from '@src/assets/svg/sidebar.svg?react';
 
 import collorPallete from '../../utils/collor-pallete';
 
@@ -16,16 +17,6 @@ export const HeaderContainer = styled.div`
   overflow-x: hidden;
   background-color: ${collorPallete.lightBlack};
   height: 50px;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-width: 345px;
-  max-width: 1850px;
-  position: relative;
 
   @media (max-width: 900px) {
     svg {
@@ -34,31 +25,74 @@ export const Container = styled.div`
     input {
       width: 50%;
       height: 25px;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 650px) {
+    svg {
+      font-size: 22px;
     }
   }
 `;
 
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 345px;
+  max-width: 1850px;
+  position: relative;
+  padding-right: 50px;
+
+  @media (max-width: 650px) {
+    position: absolute;
+    justify-content: start;
+    left: calc(10px + 10%);
+  }
+`;
+
 export const SidebarToggleBtn = styled.button`
-  color: inherit;
+  position: relative;
   background: none;
-  margin-right: 10px;
-  padding: 4px 8px;
+  left: 10px;
+  padding: 8px;
   border: 0.1px solid ${collorPallete.lightBlack};
   outline: none;
   border-radius: 4px;
-  cursor: pointer;
 
   &:hover {
     transition: 0.1s;
     color: ${collorPallete.lightBlack};
     background-color: ${collorPallete.darkWhite};
     border: 0.1px solid rgba(0, 0, 0, 0.5);
+
+    svg {
+      transform: scale(1.1);
+      path {
+        fill: ${collorPallete.lightBlack};
+      }
+    }
+  }
+
+  @media (max-width: 650px) {
+    position: absolute;
+    justify-content: start;
+    left: 0;
   }
 `;
 
-export const FilterBadge = styled.span`
-  font-size: 14px;
-  font-weight: 700;
+export const FilterIcon = styled(SidebarIconBase)`
+  transition: transform 0.2s ease;
+  font-size: 32px;
+  cursor: pointer;
+  align-self: flex-start;
+
+  path {
+    fill: white;
+  }
 `;
 
 export const SearchIcon = styled(SearchIconBase)`
@@ -114,6 +148,10 @@ export const SearchWrapper = styled.button`
     background-color: ${collorPallete.darkWhite};
     border: 0.1px solid rgba(0, 0, 0, 0.5);
   }
+
+  @media (max-width: 650px) {
+    margin-right: 8px;
+  }
 `;
 
 export const FavBtn = styled.button`
@@ -148,9 +186,13 @@ export const FavIcon = styled(HeartFilledBase)`
 export const HomeBtn = styled.button`
   color: inherit;
   background: none;
-  border: 0.1px solid ${collorPallete.lightBlack};
-  border-radius: 4px;
+  position: relative;
+  left: 10px;
+  margin-right: 15px;
   padding: 4px;
+  border: 0.1px solid ${collorPallete.lightBlack};
+  outline: none;
+  border-radius: 4px;
 
   &:hover {
     transition: 0.1s;
@@ -167,8 +209,5 @@ export const HomeIcon = styled(HomeIconBase)`
 
   &:hover {
     transform: scale(1.1);
-    path {
-      background-color: ${collorPallete.lightBlack};
-    }
   }
 `;

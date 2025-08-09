@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
 
@@ -11,9 +10,7 @@ import { useGenresStore } from '@src/store/modules/genres';
 import cutAlbumAndTitle from '@src/utils/cutAlbumAndTitle';
 import secondsToMinutes from '@src/utils/secondsToMinutes';
 
-export const useInitialFetch = () => {
-  const { search } = useLocation();
-
+export const useInitialFetch = (search: string) => {
   const setGenres = useGenresStore((state) => state.setGenres);
   const setMainMusics = useMusicsStore((state) => state.setMainMusics);
 
