@@ -37,13 +37,23 @@ export const HeaderContainer = styled.div<{ isInFavorites: boolean }>`
     }
   }
 
-  @media (max-width: 650px) {
-    grid-template-columns: max-content minmax(350px, calc(100% - 50px));
-  }
+  ${({ isInFavorites }) =>
+    !isInFavorites &&
+    css`
+      @media (max-width: 650px) {
+        grid-template-columns: max-content minmax(350px, calc(100% - 50px));
+      }
 
-  @media (max-width: 420px) {
-    grid-template-columns: max-content minmax(350px, 100%);
-  }
+      @media (max-width: 420px) {
+        grid-template-columns: max-content minmax(350px, 100%);
+      }
+
+      @media (max-width: 370px) {
+        input {
+          width: 55%;
+        }
+      }
+    `}
 
   ${({ isInFavorites }) =>
     isInFavorites &&
@@ -65,7 +75,6 @@ export const Container = styled.div`
   }
 `;
 
-// Base styles reused by header icon buttons
 const headerButtonBase = css`
   color: inherit;
   background: none;
