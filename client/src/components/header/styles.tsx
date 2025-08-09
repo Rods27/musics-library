@@ -16,23 +16,33 @@ export const HeaderContainer = styled.div<{ isInFavorites: boolean }>`
   overflow-x: hidden;
   background-color: ${collorPallete.lightBlack};
   height: 50px;
-  width: 100%;
 
   @media (max-width: 900px) {
     svg {
       font-size: 25px;
     }
     input {
-      width: 50%;
+      width: 70%;
       height: 25px;
       font-size: 0.8rem;
     }
   }
 
   @media (max-width: 650px) {
+    input {
+      width: 65%;
+    }
     svg {
       font-size: 22px;
     }
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: max-content minmax(350px, calc(100% - 50px));
+  }
+
+  @media (max-width: 420px) {
+    grid-template-columns: max-content minmax(350px, 100%);
   }
 
   ${({ isInFavorites }) =>
@@ -47,17 +57,19 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 
-  @media (max-width: 900px) {
-    right: 10px;
+  @media (max-width: 450px) {
+    justify-content: start;
+    left: 10px;
   }
 `;
 
-export const SidebarToggleBtn = styled.button`
+// Base styles reused by header icon buttons
+const headerButtonBase = css`
+  color: inherit;
   background: none;
-  left: 10px;
   padding: 4px;
-  margin-left: 4px;
   border: 0.1px solid ${collorPallete.lightBlack};
   outline: none;
   border-radius: 4px;
@@ -65,9 +77,18 @@ export const SidebarToggleBtn = styled.button`
 
   &:hover {
     transition: 0.1s;
-    color: ${collorPallete.lightBlack};
     background-color: ${collorPallete.darkWhite};
     border: 0.1px solid rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const SidebarToggleBtn = styled.button`
+  ${headerButtonBase}
+  left: 10px;
+  margin-left: 4px;
+
+  &:hover {
+    color: ${collorPallete.lightBlack};
 
     svg {
       transform: scale(1.1);
@@ -108,7 +129,6 @@ export const SearchInput = styled.input`
   border-radius: 5px;
   border: 0.1px solid ${collorPallete.lightBlack};
   font-size: 18px;
-  font-weight: 900;
   color: ${collorPallete.darkWhite};
   padding-left: 12px;
   font-weight: 500;
@@ -126,19 +146,11 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchWrapper = styled.button`
-  color: inherit;
-  background: none;
+  ${headerButtonBase}
   margin-right: 15px;
-  padding: 4px;
-  border: 0.1px solid ${collorPallete.lightBlack};
-  outline: none;
-  border-radius: 4px;
 
   &:hover {
-    transition: 0.1s;
     color: ${collorPallete.lightBlack};
-    background-color: ${collorPallete.darkWhite};
-    border: 0.1px solid rgba(0, 0, 0, 0.5);
   }
 
   @media (max-width: 650px) {
@@ -147,20 +159,12 @@ export const SearchWrapper = styled.button`
 `;
 
 export const FavBtn = styled.button`
-  color: inherit;
-  background: none;
+  ${headerButtonBase}
   position: relative;
   left: 10px;
-  padding: 4px;
-  border: 0.1px solid ${collorPallete.lightBlack};
-  outline: none;
-  border-radius: 4px;
 
   &:hover {
-    transition: 0.1s;
     color: crimson;
-    background-color: ${collorPallete.darkWhite};
-    border: 0.1px solid rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -175,20 +179,12 @@ export const FavIcon = styled(HeartFilledBase)`
 `;
 
 export const HomeBtn = styled.button`
-  color: inherit;
-  background: none;
+  ${headerButtonBase}
   position: relative;
   left: 10px;
-  padding: 4px;
-  border: 0.1px solid ${collorPallete.lightBlack};
-  outline: none;
-  border-radius: 4px;
 
   &:hover {
-    transition: 0.1s;
     color: ${collorPallete.lightBlack};
-    background-color: ${collorPallete.darkWhite};
-    border: 0.1px solid rgba(0, 0, 0, 0.5);
   }
 `;
 
