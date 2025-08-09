@@ -2,6 +2,7 @@ import { useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useMusicsStore } from '@src/store/modules';
+import { useUiStore } from '@src/store/modules/ui';
 
 import getFromDeezer from '../../services/getFromDeezer';
 import cutAlbumAndTitle from '../../utils/cutAlbumAndTitle';
@@ -13,6 +14,7 @@ function Header() {
   const navigate = useNavigate();
 
   const setMainMusics = useMusicsStore((state) => state.setMainMusics);
+  const toggleGenresSidebar = useUiStore((state) => state.toggleGenresSidebar);
 
   const searchForQuery = useCallback(async () => {
     if (!ref?.current) return;
@@ -31,6 +33,9 @@ function Header() {
   return (
     <S.HeaderContainer>
       <S.Container>
+        <S.SidebarToggleBtn onClick={toggleGenresSidebar} aria-label="Abrir filtros de gêneros">
+          <S.FilterBadge>Gêneros</S.FilterBadge>
+        </S.SidebarToggleBtn>
         <S.SearchWrapper
           data-testid="search-btn"
           onClick={() => {

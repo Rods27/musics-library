@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import { useMusicsStore } from '@src/store/modules';
 import { useArtistStore } from '@src/store/modules/artists';
 import { useGenresStore } from '@src/store/modules/genres';
+import { useUiStore } from '@src/store/modules/ui';
 import cutAlbumAndTitle from '@src/utils/cutAlbumAndTitle';
 import secondsToMinutes from '@src/utils/secondsToMinutes';
 
@@ -14,6 +15,7 @@ function GenresList() {
   const artist = useArtistStore((state) => state.artist);
   const setArtist = useArtistStore((state) => state.setArtist);
   const setMainMusics = useMusicsStore((state) => state.setMainMusics);
+  const isSidebarOpen = useUiStore((state) => state.isGenresSidebarOpen);
 
   const getArtistsFromGenre = useCallback(
     async (id: number) => {
@@ -32,6 +34,8 @@ function GenresList() {
     },
     [setMainMusics],
   );
+
+  if (isSidebarOpen) return null;
 
   return (
     <Container>

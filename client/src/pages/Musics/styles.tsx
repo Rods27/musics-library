@@ -6,19 +6,18 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const BodyContainer = styled.div`
+export const BodyContainer = styled.div<{ $withSidebar?: boolean }>`
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  flex-direction: row;
   width: 100%;
-  gap: 40px;
+  gap: 20px;
   padding-top: 40px;
   padding-bottom: 0px;
   max-width: 90%;
-  grid-template-rows: 300px 350px;
 `;
 
 export const TopWrapper = styled.div`
+  padding: 24px;
   height: 25vh;
   width: 100%;
   overflow: hidden;
@@ -27,11 +26,17 @@ export const TopWrapper = styled.div`
 `;
 
 export const BottomWrapper = styled.div`
-  height: 50vh;
   width: 100%;
   overflow: hidden;
   position: relative;
   padding-bottom: 40px;
+  height: calc(85vh - 100px);
+`;
+
+export const MainColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 `;
 
 export const LoaderDiv = styled.div`
@@ -39,6 +44,6 @@ export const LoaderDiv = styled.div`
   justify-content: center;
   align-items: center;
   color: #333;
-  height: 100vh;
-  width: 100vh;
+  height: calc(100vh - 50px);
+  width: 100%;
 `;

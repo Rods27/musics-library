@@ -38,6 +38,29 @@ export const Container = styled.div`
   }
 `;
 
+export const SidebarToggleBtn = styled.button`
+  color: inherit;
+  background: none;
+  margin-right: 10px;
+  padding: 4px 8px;
+  border: 0.1px solid ${collorPallete.lightBlack};
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.1s;
+    color: ${collorPallete.lightBlack};
+    background-color: ${collorPallete.darkWhite};
+    border: 0.1px solid rgba(0, 0, 0, 0.5);
+  }
+`;
+
+export const FilterBadge = styled.span`
+  font-size: 14px;
+  font-weight: 700;
+`;
+
 export const SearchIcon = styled(SearchIconBase)`
   font-size: 36px;
   cursor: pointer;
