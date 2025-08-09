@@ -53,7 +53,6 @@ export const SidebarContainer = styled.aside`
   width: 50vw;
   min-width: 250px;
   max-width: 600px;
-  overflow-y: hidden;
   height: 100vh;
   animation: ${moveInLeft} 0.3s forwards;
 
@@ -69,13 +68,11 @@ export const List = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 10px;
-  padding: 12px;
+  padding: 12px 20px 12px 12px;
   overflow-x: hidden;
   height: calc(100% - 100px);
   margin: 10px 10px 0;
-  padding-right: 10px;
   max-height: 1300px;
-  padding-right: 20px;
 
   button {
     background: none;

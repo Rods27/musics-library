@@ -34,7 +34,7 @@ function Header() {
   }, [navigate, setMainMusics, setSearch]);
 
   return (
-    <S.HeaderContainer>
+    <S.HeaderContainer isInFavorites={isInFavorites}>
       {!isInFavorites && (
         <S.SidebarToggleBtn onClick={toggleGenresSidebar} aria-label="Abrir filtros de gêneros">
           <S.FilterIcon />

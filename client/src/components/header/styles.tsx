@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import HeartFilledBase from '@src/assets/svg/heart-filled.svg?react';
 import HomeIconBase from '@src/assets/svg/home.svg?react';
@@ -7,16 +7,16 @@ import SidebarIconBase from '@src/assets/svg/sidebar.svg?react';
 
 import collorPallete from '../../utils/collor-pallete';
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<{ isInFavorites: boolean }>`
   z-index: 1000;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: max-content minmax(350px, calc(100% - 100px));
   color: white;
   overflow-x: hidden;
   background-color: ${collorPallete.lightBlack};
   height: 50px;
+  width: 100%;
 
   @media (max-width: 900px) {
     svg {
@@ -34,6 +34,12 @@ export const HeaderContainer = styled.div`
       font-size: 22px;
     }
   }
+
+  ${({ isInFavorites }) =>
+    isInFavorites &&
+    css`
+      display: flex;
+    `}
 `;
 
 export const Container = styled.div`
@@ -41,27 +47,21 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-width: 345px;
-  max-width: 1850px;
-  position: relative;
-  padding-right: 50px;
 
-  @media (max-width: 650px) {
-    position: absolute;
-    justify-content: start;
-    left: calc(10px + 10%);
+  @media (max-width: 900px) {
+    right: 10px;
   }
 `;
 
 export const SidebarToggleBtn = styled.button`
-  position: relative;
   background: none;
   left: 10px;
-  padding: 8px;
+  padding: 4px;
+  margin-left: 4px;
   border: 0.1px solid ${collorPallete.lightBlack};
   outline: none;
   border-radius: 4px;
+  cursor: pointer;
 
   &:hover {
     transition: 0.1s;
@@ -76,19 +76,11 @@ export const SidebarToggleBtn = styled.button`
       }
     }
   }
-
-  @media (max-width: 650px) {
-    position: absolute;
-    justify-content: start;
-    left: 0;
-  }
 `;
 
 export const FilterIcon = styled(SidebarIconBase)`
   transition: transform 0.2s ease;
   font-size: 32px;
-  cursor: pointer;
-  align-self: flex-start;
 
   path {
     fill: white;
@@ -159,7 +151,6 @@ export const FavBtn = styled.button`
   background: none;
   position: relative;
   left: 10px;
-  margin-right: 15px;
   padding: 4px;
   border: 0.1px solid ${collorPallete.lightBlack};
   outline: none;
@@ -188,7 +179,6 @@ export const HomeBtn = styled.button`
   background: none;
   position: relative;
   left: 10px;
-  margin-right: 15px;
   padding: 4px;
   border: 0.1px solid ${collorPallete.lightBlack};
   outline: none;
